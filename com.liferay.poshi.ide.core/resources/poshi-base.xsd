@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+
+<xsd:schema
+	elementFormDefault="qualified"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+>
+
+	<xsd:attribute name="addSelection" type="xsd:string"/>
+	<xsd:attribute name="arg1" type="xsd:string"/>
+	<xsd:attribute name="arg2" type="xsd:string"/>
+	<xsd:attribute name="argument1" type="xsd:string"/>
+	<xsd:attribute name="argument2" type="xsd:string"/>
+	<xsd:attribute name="component-name" type="xsd:string"/>
+	<xsd:attribute name="default" type="xsd:string"/>
+	<xsd:attribute name="function" type="xsd:string"/>
+	<xsd:attribute name="known-issues" type="xsd:string"/>
+	<xsd:attribute name="locator1" type="xsd:string"/>
+	<xsd:attribute name="macro" type="xsd:string"/>
+	<xsd:attribute name="message" type="xsd:string"/>
+	<xsd:attribute name="method" type="xsd:string"/>
+	<xsd:attribute name="name" type="xsd:string"/>
+	<xsd:attribute name="priority" type="xsd:string"/>
+	<xsd:attribute name="selenium" type="xsd:string"/>
+	<xsd:attribute name="value" type="xsd:string"/>
+	<xsd:attribute name="value1" type="xsd:string"/>
+	<xsd:attribute name="var" type="xsd:string"/>
+
+	<xsd:element name="and">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="condition" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="command">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="description" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="execute" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="if" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="take-screenshot" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="while" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="var" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:choice>
+			<xsd:attribute ref="name" />
+			<xsd:attribute ref="known-issues" />
+			<xsd:attribute ref="priority" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="condition">
+		<xsd:complexType>
+			<xsd:attribute ref="argument1" />
+			<xsd:attribute ref="function" />
+			<xsd:attribute ref="selenium" />
+			<xsd:attribute ref="locator1" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="definition">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="command" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="property" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="set-up" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="tear-down" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="var" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:choice>
+			<xsd:attribute ref="component-name" />
+			<xsd:attribute ref="default" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="description">
+		<xsd:complexType>
+			<xsd:attribute ref="message" use="required" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="echo">
+		<xsd:complexType>
+			<xsd:attribute ref="message" use="required" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="else">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="execute" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="if" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="elseif">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="equals" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="isset" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="then" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="equals">
+		<xsd:complexType>
+			<xsd:attribute ref="arg1" />
+			<xsd:attribute ref="arg2" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="execute">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="var" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:choice>
+			<xsd:attribute ref="argument1" />
+			<xsd:attribute ref="argument2" />
+			<xsd:attribute ref="function" />
+			<xsd:attribute ref="locator1" />
+			<xsd:attribute ref="macro" />
+			<xsd:attribute ref="selenium" />
+			<xsd:attribute ref="value1" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="if">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="and" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="condition" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="else" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="equals" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="isset" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="then" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="isset">
+		<xsd:complexType>
+			<xsd:attribute ref="var" use="required" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="not">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="or" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="or">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="condition" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="equals" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="property">
+		<xsd:complexType>
+			<xsd:attribute ref="name" use="required" />
+			<xsd:attribute ref="value" use="required" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="set-up">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="execute" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="take-screenshot" />
+
+	<xsd:element name="tear-down">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="execute" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="then">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="echo" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="execute" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="if" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="var" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="var">
+		<xsd:complexType>
+			<xsd:attribute ref="method" />
+			<xsd:attribute ref="name" use="required" />
+			<xsd:attribute ref="value" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="while">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="condition" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="not" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="then" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
