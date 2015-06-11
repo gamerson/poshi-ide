@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+    <extension
+        point="org.eclipse.core.contenttype.contentTypes">
+
+        <content-type
+            base-type="org.eclipse.core.runtime.xml"
+            default-charset="UTF-8"
+            file-extensions="function"
+            id="com.liferay.ide.poshi.functionfile"
+            name="Poshi Function File"
+            priority="high">
+                <describer
+                    class="com.liferay.poshi.ide.core.describer.FunctionFileDescriber" />
+        </content-type>
+        <content-type
+            base-type="org.eclipse.core.runtime.xml"
+            default-charset="UTF-8"
+            file-extensions="testcase"
+            id="com.liferay.ide.poshi.testcasefile"
+            name="Poshi Testcase File"
+            priority="high">
+                <describer
+                    class="com.liferay.poshi.ide.core.describer.TestcaseFileDescriber" />
+        </content-type>
+        <content-type
+            base-type="org.eclipse.core.runtime.xml"
+            default-charset="UTF-8"
+            file-extensions="macro"
+            id="com.liferay.ide.poshi.macrofile"
+            name="Poshi Macro File"
+            priority="high">
+                <describer
+                    class="com.liferay.poshi.ide.core.describer.MacroFileDescriber" />
+        </content-type>
+            <content-type
+            base-type="org.eclipse.core.runtime.xml"
+            default-charset="UTF-8"
+            file-extensions="path"
+            id="com.liferay.ide.poshi.pathfile"
+            name="Poshi Path File"
+            priority="high">
+                <describer
+                    class="com.liferay.poshi.ide.core.describer.PathFileDescriber" />
+        </content-type>
+    </extension>
+    <extension
+        point="org.eclipse.wst.xml.core.externalSchemaLocations">
+        <provider
+            class="com.liferay.poshi.ide.core.PoshiExternalSchemaLocationProvider" />
+    </extension>
+</plugin>

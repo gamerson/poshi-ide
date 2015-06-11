@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+    <feature id="com.liferay.poshi.ide" version="0.0.0">
+        <category name="poshi-ide" />
+    </feature>
+
+    <category-def name="poshi-ide" label="Poshi IDE">
+        <description>
+            Poshi IDE is set of plugins that support testing using Poshi
+        </description>
+    </category-def>
+</site>
