@@ -45,9 +45,17 @@
                     class="com.liferay.poshi.ide.core.describer.PathFileDescriber" />
         </content-type>
     </extension>
+
     <extension
         point="org.eclipse.wst.xml.core.externalSchemaLocations">
         <provider
             class="com.liferay.poshi.ide.core.PoshiExternalSchemaLocationProvider" />
+    </extension>
+
+    <extension
+       point="org.eclipse.ui.editors.templates">
+       <include
+             file="templates/poshi-templates.xml">
+       </include>
     </extension>
 </plugin>

@@ -1,0 +1,180 @@
+<templates>
+    <template
+        name="contains"
+        description="A contains tag"
+        id="com.liferay.poshi.ide.templates.contains"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;contains string="${string}" substring="${substring}" /&gt;</template>
+
+    <template
+        name="and"
+        description="An and tag"
+        id="com.liferay.poshi.ide.templates.and"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;and&gt;${cursor}&lt;/and&gt;</template>
+
+    <template
+        name="condition"
+        description="A condition tag"
+        id="com.liferay.poshi.ide.templates.condition"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;condition ${cursor} /&gt;</template>
+
+    <template
+        name="description"
+        description="A description tag"
+        id="com.liferay.poshi.ide.templates.description"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;description message="${message}" /&gt;</template>
+
+    <template
+        name="echo"
+        description="An echo tag"
+        id="com.liferay.poshi.ide.templates.echo"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;echo message="${message}" /&gt;</template>
+
+    <template
+        name="else"
+        description="An else tag"
+        id="com.liferay.poshi.ide.templates.else"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;else&gt;${cursor}&lt;/else&gt;</template>
+
+    <template
+        name="elseif"
+        description="An elseif tag"
+        id="com.liferay.poshi.ide.templates.elseif"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;elseif&gt;${cursor}&lt;/elseif&gt;</template>
+
+    <template
+        name="equals"
+        description="An equals tag"
+        id="com.liferay.poshi.ide.templates.equals"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;equals arg1="${arg1}" arg2="${arg2}" /&gt;</template>
+
+    <template
+        name="fail"
+        description="A fail tag"
+        id="com.liferay.poshi.ide.templates.fail"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;fail message="${message}" /&gt;</template>
+
+    <template
+        name="execute"
+        description="An execute tag"
+        id="com.liferay.poshi.ide.templates.execute"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;execute ${cursor} /&gt;</template>
+
+    <template
+        name="for"
+        description="A for tag"
+        id="com.liferay.poshi.ide.templates.for"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;for list="${list}" param="${param}" &gt;${cursor}&lt;/for&gt;</template>
+
+    <template
+        name="if"
+        description="An if tag"
+        id="com.liferay.poshi.ide.templates.if"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;if&gt;${cursor}&lt;/if&gt;</template>
+
+    <template
+        name="isset"
+        description="An isset tag"
+        id="com.liferay.poshi.ide.templates.isset"
+        context="xml_tag" enabled="true" autoinsert="true"
+    >&lt;isset var="${var}" /&gt;</template>
+
+    <template
+        name="not"
+        description="A not tag"
+        id="com.liferay.poshi.ide.templates.not"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;not&gt;${cursor}&lt;/not&gt;</template>
+
+    <template
+        name="or"
+        description="An or tag"
+        id="com.liferay.poshi.ide.templates.or"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;or&gt;${cursor}&lt;/or&gt;</template>
+
+    <template
+        name="property"
+        description="A property tag"
+        id="com.liferay.poshi.ide.templates.property"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;property name="${name}" var="${var}" /&gt;</template>
+
+    <template
+        name="take-screenshot"
+        description="An take-screenshot tag"
+        id="com.liferay.poshi.ide.templates.take-screenshot"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;take-screenshot /&gt;</template>
+
+    <template
+        name="then"
+        description="A then tag"
+        id="com.liferay.poshi.ide.templates.then"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;then&gt;${cursor}&lt;/then&gt;</template>
+
+    <template
+        name="var"
+        description="A var tag"
+        id="com.liferay.poshi.ide.templates.var"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;var name="${name}" value="${value}" /&gt;</template>
+
+    <template
+        name="while"
+        description="A while tag"
+        id="com.liferay.poshi.ide.templates.while"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;while&gt;${cursor}&lt;/while&gt;</template>
+
+</templates>
