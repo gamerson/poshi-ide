@@ -34,7 +34,7 @@
     <modules>
         <module>com.liferay.poshi.ide</module>
         <module>com.liferay.poshi.ide.core</module>
-        <!--<module>com.liferay.poshi.ide.ui</module>-->
+        <module>com.liferay.poshi.ide.ui</module>
         <module>com.liferay.poshi.ide-repository</module>
     </modules>
 
