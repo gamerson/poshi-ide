@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+    <extension point="org.eclipse.wst.sse.ui.editorConfiguration">
+        <sourceViewerConfiguration
+            class="org.eclipse.wst.xml.search.editor.XMLReferencesStructuredTextViewerConfiguration"
+            target="com.liferay.ide.poshi.testcasefile" />
+        <sourceViewerConfiguration
+            class="org.eclipse.wst.xml.search.editor.XMLReferencesStructuredTextViewerConfiguration"
+            target="com.liferay.ide.poshi.macrofile" />
+        <sourceViewerConfiguration
+            class="org.eclipse.wst.xml.search.editor.XMLReferencesStructuredTextViewerConfiguration"
+            target="com.liferay.ide.poshi.functionfile" />
+    </extension>
+
+    <extension
+        point="org.eclipse.wst.xml.search.core.querySpecifications">
+        <querySpecification
+            id="testcase.querySpecification" 
+            class="com.liferay.poshi.ide.query.TestcaseQuerySpecification" />
+        <querySpecification
+            id="function.querySpecification" 
+            class="com.liferay.poshi.ide.query.FunctionQuerySpecification" />
+        <querySpecification
+            id="macro.querySpecification" 
+            class="com.liferay.poshi.ide.query.MacroQuerySpecification" />
+    </extension>
+
+    <extension
+        point="org.eclipse.wst.xml.search.core.resourceQuerySpecifications">
+        <querySpecification
+            class="com.liferay.poshi.ide.query.resource.FunctionResourcesQuerySpecification"
+            id="function.files.querySpecification" />
+        <querySpecification
+            class="com.liferay.poshi.ide.query.resource.MacroResourcesQuerySpecification"
+            id="macro.files.querySpecification">
+        </querySpecification>
+    </extension>
+
+    <extension
+        point="org.eclipse.wst.xml.search.core.querySpecifications">
+        <querySpecification
+            class="com.liferay.poshi.ide.ui.node.MacroNodeQuerySpecification"
+            id="macro.node.querySpecification" />
+        <querySpecification
+            class="com.liferay.poshi.ide.ui.node.FunctionNodeQuerySpecification"
+            id="function.node.querySpecification" />
+    </extension>
+
+    <extension
+        point="org.eclipse.wst.xml.search.editor.contentAssists">
+        <additionalProposalInfoProvider
+            id="poshi.info"
+            class="com.liferay.poshi.ide.ui.contentassist.PoshiContentAssistAdditionalProposalInfoProvider" >
+        </additionalProposalInfoProvider>
+        <additionalProposalInfoProvider
+            id="poshi.node.info"
+            class="com.liferay.poshi.ide.ui.contentassist.PoshiNodeAssistAdditionalProposalInfoProvider" >
+        </additionalProposalInfoProvider>
+    </extension>
+
+    <extension
+        point="org.eclipse.wst.xml.search.editor.xmlReferences">
+        <references
+            contentTypeIds="com.liferay.ide.poshi.testcasefile">
+            <reference>
+                <from
+                    path="//execute"
+                    targetNodes="@macro"
+                    querySpecificationId="testcase.querySpecification" >
+                </from>
+                <toResource
+                    querySpecificationId="macro.files.querySpecification"
+                    additionalProposalInfoProviderId="poshi.info"
+                />
+                <to
+                    path="//command"
+                    targetNodes="@name"
+                    querySpecificationId="macro.node.querySpecification"
+                    additionalProposalInfoProviderId="poshi.node.info"
+                    searcherId="poshi.node.searcher"
+                />
+            </reference>
+
+            <reference>
+                <from
+                    path="//execute"
+                    targetNodes="@function"
+                    querySpecificationId="testcase.querySpecification" >
+                </from>
+                <toResource
+                    querySpecificationId="function.files.querySpecification" 
+                    additionalProposalInfoProviderId="poshi.info"
+                />
+                <to
+                    path="//command"
+                    targetNodes="@name"
+                    querySpecificationId="function.node.querySpecification"
+                    additionalProposalInfoProviderId="poshi.node.info"
+                    searcherId="poshi.node.searcher"
+                />
+            </reference>
+
+            <reference>
+                <from
+                    path="//execute"
+                    targetNodes="@selenium"
+                    querySpecificationId="testcase.querySpecification" >
+                </from>
+                <toStatic
+                    querySpecificationId="com.liferay.ide.poshi.search.ui.seleniumqueryspecification"
+                />
+            </reference>
+        </references>
+
+        <references
+            contentTypeIds="com.liferay.ide.poshi.functionfile">
+            <reference>
+                <from
+                    path="//execute"
+                    targetNodes="@macro"
+                    querySpecificationId="function.querySpecification" >
+                </from>
+                <toResource
+                    querySpecificationId="macro.files.querySpecification"
+                    additionalProposalInfoProviderId="poshi.info"
+                />
+                <to
+                    path="//command"
+                    targetNodes="@name"
+                    querySpecificationId="macro.node.querySpecification"
+                    additionalProposalInfoProviderId="poshi.node.info"
+                    searcherId="poshi.node.searcher"
+                />
+            </reference>
+
+            <reference>
+                <from
+                    path="//execute"
+                    targetNodes="@function"
+                    querySpecificationId="function.querySpecification" >
+                </from>
+                <toResource
+                    querySpecificationId="function.files.querySpecification" 
+                    additionalProposalInfoProviderId="poshi.info"
+                />
+                <to
+                    path="//command"
+                    targetNodes="@name"
+                    querySpecificationId="function.node.querySpecification"
+                    additionalProposalInfoProviderId="poshi.node.info"
+                    searcherId="poshi.node.searcher"
+                />
+            </reference>
+            <reference>
+                <from
+                    path="//execute"
+                    targetNodes="@selenium"
+                    querySpecificationId="function.querySpecification" >
+                </from>
+                <toStatic
+                    querySpecificationId="com.liferay.ide.poshi.search.ui.seleniumqueryspecification"
+                />
+            </reference>
+        </references>
+
+        <references
+            contentTypeIds="com.liferay.ide.poshi.macrofile">
+            <reference>
+                <from
+                    path="//execute"
+                    targetNodes="@macro"
+                    querySpecificationId="macro.querySpecification" >
+                </from>
+                <toResource
+                    querySpecificationId="macro.files.querySpecification"
+                    additionalProposalInfoProviderId="poshi.info"
+                />
+                <to
+                    path="//command"
+                    targetNodes="@name"
+                    querySpecificationId="macro.node.querySpecification"
+                    additionalProposalInfoProviderId="poshi.node.info"
+                    searcherId="poshi.node.searcher"
+                />
+            </reference>
+
+            <reference>
+                <from
+                    path="//execute"
+                    targetNodes="@function"
+                    querySpecificationId="macro.querySpecification" >
+                </from>
+                <toResource
+                    querySpecificationId="function.files.querySpecification" 
+                    additionalProposalInfoProviderId="poshi.info"
+                />
+                <to
+                    path="//command"
+                    targetNodes="@name"
+                    querySpecificationId="function.node.querySpecification"
+                    additionalProposalInfoProviderId="poshi.node.info"
+                    searcherId="poshi.node.searcher"
+                />
+            </reference>
+            <reference>
+                <from
+                    path="//execute"
+                    targetNodes="@selenium"
+                    querySpecificationId="macro.querySpecification" >
+                </from>
+                <toStatic
+                    querySpecificationId="com.liferay.ide.poshi.search.ui.seleniumqueryspecification"
+                />
+            </reference>
+        </references>
+    </extension>
+
+    <extension
+        point="org.eclipse.wst.xml.search.core.staticValueQuerySpecifications">
+        <querySpecification
+            class="com.liferay.poshi.ide.query.staticvalue.SeleniumQuerySpecification"
+            id="com.liferay.ide.poshi.search.ui.seleniumqueryspecification">
+        </querySpecification>
+    </extension>
+
+    <extension
+        point="org.eclipse.wst.xml.search.editor.searchers">
+        <searcher
+            class="com.liferay.poshi.ide.searcher.PoshiNodeSearcher"
+            id="poshi.node.searcher">
+        </searcher>
+    </extension>
+
+</plugin>
