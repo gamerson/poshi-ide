@@ -6,24 +6,27 @@ Bundle-Localization: plugin
 Bundle-SymbolicName: com.liferay.poshi.ide.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.liferay.poshi.ide.ui.PoshiUI
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.wst.xml.search.core,
+Require-Bundle: org.eclipse.core.filesystem,
+ org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.debug.ui,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.ui,
+ org.eclipse.jface.text,
+ org.eclipse.text,
+ org.eclipse.ui,
+ org.eclipse.ui.ide,
+ org.eclipse.ui.workbench,
  org.eclipse.wst.xml.core,
+ org.eclipse.wst.xml.search.core,
  org.eclipse.wst.xml.search.editor,
  org.eclipse.wst.xml.ui,
  org.eclipse.wst.jsdt.core,
  org.eclipse.wst.sse.ui,
  org.eclipse.wst.sse.core,
  org.eclipse.wst.validation,
- org.eclipse.core.resources,
- org.eclipse.ui,
- org.eclipse.jdt.core,
- org.eclipse.jface.text,
- org.eclipse.ui.workbench,
- org.eclipse.ui.ide,
- org.eclipse.jdt.ui,
- org.eclipse.text,
- org.eclipse.core.filesystem
+ com.liferay.poshi.ide.core;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: com.liferay.poshi.ide.ui
+Import-Package: com.liferay.poshi.ide.core
