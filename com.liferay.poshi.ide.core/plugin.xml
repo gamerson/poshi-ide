@@ -58,4 +58,11 @@
              file="templates/poshi-templates.xml">
        </include>
     </extension>
+    <extension
+        point="org.eclipse.jdt.launching.classpathProviders">
+        <classpathProvider
+            class="com.liferay.poshi.ide.core.PoshiClasspathProvider"
+            id="com.liferay.poshi.ide.core.PoshiClasspathProvider">
+        </classpathProvider>
+    </extension>
 </plugin>
