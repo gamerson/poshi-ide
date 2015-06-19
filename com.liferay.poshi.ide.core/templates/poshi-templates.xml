@@ -151,6 +151,15 @@
     >&lt;take-screenshot /&gt;</template>
 
     <template
+        name="task"
+        description="An task tag"
+        id="com.liferay.poshi.ide.templates.task"
+        context="xml_tag"
+        enabled="true"
+        autoinsert="true"
+    >&lt;task ${cursor}&gt;&lt;/task&gt;</template>
+
+    <template
         name="then"
         description="A then tag"
         id="com.liferay.poshi.ide.templates.then"

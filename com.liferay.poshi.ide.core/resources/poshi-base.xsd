@@ -26,6 +26,7 @@
     <xsd:attribute name="locator1" type="xsd:string"/>
     <xsd:attribute name="locator2" type="xsd:string"/>
 	<xsd:attribute name="macro" type="xsd:string"/>
+    <xsd:attribute name="macro-summary" type="xsd:string"/>
 	<xsd:attribute name="message" type="xsd:string"/>
 	<xsd:attribute name="method" type="xsd:string"/>
 	<xsd:attribute name="name" type="xsd:string"/>
@@ -205,6 +206,7 @@
 	<xsd:element name="or">
 		<xsd:complexType>
 			<xsd:sequence>
+                <xsd:element ref="or" minOccurs="0" maxOccurs="unbounded" />
                 <xsd:element ref="isset" minOccurs="0" maxOccurs="unbounded" />
 				<xsd:element ref="condition" minOccurs="0" maxOccurs="unbounded" />
                 <xsd:element ref="contains" minOccurs="0" maxOccurs="unbounded" />
@@ -232,6 +234,16 @@
 	</xsd:element>
 
 	<xsd:element name="take-screenshot" />
+
+    <xsd:element name="task">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="execute" minOccurs="0" maxOccurs="unbounded" />
+            </xsd:sequence>
+            <xsd:attribute ref="macro-summary"/>
+            <xsd:attribute ref="summary"/>
+        </xsd:complexType>
+    </xsd:element>
 
 	<xsd:element name="tear-down">
 		<xsd:complexType>

@@ -233,4 +233,62 @@
         </searcher>
     </extension>
 
+    <extension
+        point="org.eclipse.debug.ui.launchShortcuts">
+        <shortcut
+              class="com.liferay.poshi.ide.ui.launch.TestcaseLaunchShortcut"
+              icon="icons/liferay.png"
+              id="com.liferay.poshi.ide.ui.launch.testcaseLaunchShortcut"
+              label="Poshi Testcase (run.xml)"
+              modes="run">
+            <contextualLaunch>
+                <enablement>
+                    <with
+                        variable="selection">
+                        <count
+                            value="1">
+                        </count>
+                        <iterate>
+                            <or>
+                                <test
+                                    property="org.eclipse.debug.ui.matchesPattern"
+                                    value="*.testcase">
+                                </test>
+                            </or>
+                        </iterate>
+                    </with>
+                </enablement>
+            </contextualLaunch>
+        </shortcut>
+    </extension>
+
+    <extension
+        point="org.eclipse.debug.ui.launchShortcuts">
+        <shortcut
+              class="com.liferay.poshi.ide.ui.launch.TestcasePoshiRunnerLaunchShortcut"
+              icon="icons/liferay.png"
+              id="com.liferay.poshi.ide.ui.launch.testcasePoshiRunnerLaunchShortcut"
+              label="Poshi Runner Testcase (build-test.xml)"
+              modes="run">
+            <contextualLaunch>
+                <enablement>
+                    <with
+                        variable="selection">
+                        <count
+                            value="1">
+                        </count>
+                        <iterate>
+                            <or>
+                                <test
+                                    property="org.eclipse.debug.ui.matchesPattern"
+                                    value="*.testcase">
+                                </test>
+                            </or>
+                        </iterate>
+                    </with>
+                </enablement>
+            </contextualLaunch>
+        </shortcut>
+    </extension>
+
 </plugin>
