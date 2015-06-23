@@ -64,7 +64,7 @@ public class PoshiLaunchHelper extends LaunchHelper
             IJavaLaunchConfigurationConstants.ATTR_CLASSPATH_PROVIDER, ANT_CLASSPATH_PROVIDER );
         launchConfig.setAttribute(
             IJavaLaunchConfigurationConstants.ATTR_JRE_CONTAINER_PATH,
-            "org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_75" );
+            "org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7" );
         launchConfig.setAttribute(
             IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME,
             "org.eclipse.ant.internal.launching.remote.InternalAntRunner" );
