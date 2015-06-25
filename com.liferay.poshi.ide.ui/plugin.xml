@@ -291,4 +291,57 @@
         </shortcut>
     </extension>
 
+    <extension
+        point="org.eclipse.ui.popupMenus">
+        <objectContribution
+            objectClass="org.eclipse.core.resources.IResource"
+            adaptable="true"
+            id="com.liferay.poshi.ui.popupmenu">
+            <menu
+                icon="icons/liferay.png"
+                id="poshiPopupMenuCategory"
+                label="Poshi">
+                <separator name="slot1"/>
+
+                <groupMarker
+                    name="all">
+                </groupMarker>
+                <groupMarker
+                    name="build-selenium">
+                </groupMarker>
+                <groupMarker
+                    name="compile-tools">
+                </groupMarker>
+            </menu>
+        </objectContribution>
+        <objectContribution
+            adaptable="true"
+            id="com.liferay.poshi.ui.build.popup"
+            objectClass="org.eclipse.core.resources.IResource">
+            <action
+                class="com.liferay.poshi.ide.ui.launch.AllAction"
+                enablesFor="1"
+                icon="icons/liferay.png"
+                id="com.liferay.poshi.ui.build.popup.action.all"
+                label="build-all"
+                menubarPath="poshiPopupMenuCategory/all">
+            </action>
+            <action
+                class="com.liferay.poshi.ide.ui.launch.BuildSeleniumAction"
+                enablesFor="1"
+                icon="icons/liferay.png"
+                id="com.liferay.poshi.ui.build.popup.action.build-selenium"
+                label="build-selenium"
+                menubarPath="poshiPopupMenuCategory/build-selenium">
+            </action>
+            <action
+                class="com.liferay.poshi.ide.ui.launch.CompileToolsAction"
+                enablesFor="1"
+                icon="icons/liferay.png"
+                id="com.liferay.poshi.ui.build.popup.action.compile-tools"
+                label="compile-tools"
+                menubarPath="poshiPopupMenuCategory/compile-tools">
+            </action>
+        </objectContribution>
+    </extension>
 </plugin>

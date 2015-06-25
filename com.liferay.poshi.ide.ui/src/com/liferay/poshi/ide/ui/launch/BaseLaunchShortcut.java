@@ -15,6 +15,8 @@
 
 package com.liferay.poshi.ide.ui.launch;
 
+import java.io.FileNotFoundException;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
@@ -86,7 +88,12 @@ public class BaseLaunchShortcut implements ILaunchShortcut
 
             fileName = fileName.substring( 0, fileName.indexOf( "." ) );
 
-            launchFile( file, fileName );
+            StringBuffer sb = new StringBuffer();
+
+            sb.append( "-Dtest.class=" );
+            sb.append( fileName );
+
+            launchFile( file, sb.toString() );
         }
     }
 
@@ -108,14 +115,18 @@ public class BaseLaunchShortcut implements ILaunchShortcut
 
         String commandName = getCommandName( e );
 
-        String argument = fileName;
+        StringBuffer sb = new StringBuffer();
+
+        sb.append( "-Dtest.class=" );
+        sb.append( fileName );
 
         if( !commandName.equals( "" ) )
         {
-            argument = fileName + "#" + commandName;
+            sb.append( "#" );
+            sb.append( commandName );
         }
 
-        launchFile( file, argument );
+        launchFile( file, sb.toString() );
     }
 
     protected void launchFile( IFile file, String argument )
@@ -137,6 +148,17 @@ public class BaseLaunchShortcut implements ILaunchShortcut
             catch( CoreException e )
             {
                 PoshiUI.logError( e );
+            }
+        }
+        else
+        {
+            try
+            {
+                throw new FileNotFoundException();
+            }
+            catch( FileNotFoundException e )
+            {
+                PoshiUI.logError( "Can't find build file at:" + runXmlPath.toPortableString(), e );
             }
         }
     }

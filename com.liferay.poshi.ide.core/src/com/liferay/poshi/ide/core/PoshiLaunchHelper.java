@@ -79,7 +79,10 @@ public class PoshiLaunchHelper extends LaunchHelper
 
         launchConfig.setAttribute( DebugPlugin.ATTR_PROCESS_FACTORY_ID, "org.eclipse.ant.ui.remoteAntProcessFactory" );
 
-        launchConfig.setAttribute( "org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS", "-Dtest.class=" + argument );
+        if( !argument.equals( "" ) )
+        {
+            launchConfig.setAttribute( "org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS", argument );
+        }
 
         if( separateJRE )
         {
