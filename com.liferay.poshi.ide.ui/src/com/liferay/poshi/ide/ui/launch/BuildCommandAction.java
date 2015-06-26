@@ -19,6 +19,7 @@ import java.io.FileNotFoundException;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -56,13 +57,12 @@ public abstract class BuildCommandAction extends AbstractObjectAction
 
             Object elem = elems[0];
 
-            if( elem instanceof IFile )
-            {
-                project = ( (IFile) elem ).getProject();
-            }
-            else if( elem instanceof IProject )
+            if( elem instanceof IProject )
             {
                 project = (IProject) elem;
+            }
+            else {
+                project = ( (IResource) elem ).getProject();
             }
 
             IPath portalPath = project.getLocation().removeLastSegments( 6 );

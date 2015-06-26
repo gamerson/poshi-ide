@@ -236,11 +236,11 @@
     <extension
         point="org.eclipse.debug.ui.launchShortcuts">
         <shortcut
-              class="com.liferay.poshi.ide.ui.launch.TestcaseLaunchShortcut"
-              icon="icons/liferay.png"
-              id="com.liferay.poshi.ide.ui.launch.testcaseLaunchShortcut"
-              label="Poshi Testcase (run.xml)"
-              modes="run">
+            class="com.liferay.poshi.ide.ui.launch.TestcaseLaunchShortcut"
+            icon="icons/liferay.png"
+            id="com.liferay.poshi.ide.ui.launch.testcaseLaunchShortcut"
+            label="Poshi Testcase (run.xml)"
+            modes="run">
             <contextualLaunch>
                 <enablement>
                     <with
@@ -260,16 +260,37 @@
                 </enablement>
             </contextualLaunch>
         </shortcut>
-    </extension>
-
-    <extension
-        point="org.eclipse.debug.ui.launchShortcuts">
         <shortcut
-              class="com.liferay.poshi.ide.ui.launch.TestcasePoshiRunnerLaunchShortcut"
-              icon="icons/liferay.png"
-              id="com.liferay.poshi.ide.ui.launch.testcasePoshiRunnerLaunchShortcut"
-              label="Poshi Runner Testcase (build-test.xml)"
-              modes="run">
+            class="com.liferay.poshi.ide.ui.launch.TestcasePoshiRunnerLaunchShortcut"
+            icon="icons/liferay.png"
+            id="com.liferay.poshi.ide.ui.launch.testcasePoshiRunnerLaunchShortcut"
+            label="Poshi Runner Testcase (build-test.xml)"
+            modes="run">
+            <contextualLaunch>
+                <enablement>
+                    <with
+                        variable="selection">
+                        <count
+                            value="1">
+                        </count>
+                        <iterate>
+                            <or>
+                                <test
+                                    property="org.eclipse.debug.ui.matchesPattern"
+                                    value="*.testcase">
+                                </test>
+                            </or>
+                        </iterate>
+                    </with>
+                </enablement>
+            </contextualLaunch>
+        </shortcut>
+        <shortcut
+            class="com.liferay.poshi.ide.ui.launch.TestcaseTomcatLaunchShortcut"
+            icon="icons/liferay.png"
+            id="com.liferay.poshi.ide.ui.launch.testcaseTomcatLaunchShortcut"
+            label="Poshi Testcase with Tomcat (run.xml tomcat)"
+            modes="run">
             <contextualLaunch>
                 <enablement>
                     <with
@@ -341,6 +362,14 @@
                 id="com.liferay.poshi.ui.build.popup.action.compile-tools"
                 label="compile-tools"
                 menubarPath="poshiPopupMenuCategory/compile-tools">
+            </action>
+            <action
+                class="com.liferay.poshi.ide.ui.launch.FormatSourceAction"
+                enablesFor="1"
+                icon="icons/liferay.png"
+                id="com.liferay.poshi.ui.build.popup.action.format-source"
+                label="format-source"
+                menubarPath="poshiPopupMenuCategory/format-source">
             </action>
         </objectContribution>
     </extension>
