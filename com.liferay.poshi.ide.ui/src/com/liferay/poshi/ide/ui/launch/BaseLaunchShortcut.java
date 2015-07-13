@@ -139,7 +139,7 @@ public class BaseLaunchShortcut implements ILaunchShortcut
         {
             PoshiLaunchHelper helper = new PoshiLaunchHelper();
 
-            helper.setVMArgs( new String[] { "" } );
+            helper.setVMArgs( new String[] { "-XX:MaxPermSize=256m", "-Xms256m" } );
 
             try
             {

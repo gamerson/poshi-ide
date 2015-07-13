@@ -17,7 +17,6 @@ package com.liferay.poshi.ide.ui.launch;
 
 import java.io.FileNotFoundException;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -85,7 +84,7 @@ public abstract class BuildCommandAction extends AbstractObjectAction
                         {
                             PoshiLaunchHelper helper = new PoshiLaunchHelper();
 
-                            helper.setVMArgs( new String[] { "" } );
+                            helper.setVMArgs( new String[] { "-XX:MaxPermSize=256m", "-Xms256m" } );
 
                             try
                             {
