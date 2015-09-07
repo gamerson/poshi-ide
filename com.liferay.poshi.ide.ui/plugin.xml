@@ -12,6 +12,9 @@
         <sourceViewerConfiguration
             class="org.eclipse.wst.xml.search.editor.XMLReferencesStructuredTextViewerConfiguration"
             target="com.liferay.ide.poshi.functionfile" />
+        <sourceViewerConfiguration
+            class="org.eclipse.wst.xml.search.editor.XMLReferencesStructuredTextViewerConfiguration"
+            target="com.liferay.ide.poshi.pathfile" />
     </extension>
 
     <extension
@@ -25,6 +28,9 @@
         <querySpecification
             id="macro.querySpecification" 
             class="com.liferay.poshi.ide.query.MacroQuerySpecification" />
+        <querySpecification
+            id="path.querySpecification"
+            class="com.liferay.poshi.ide.query.PathQuerySpecification" />
     </extension>
 
     <extension
@@ -34,8 +40,10 @@
             id="function.files.querySpecification" />
         <querySpecification
             class="com.liferay.poshi.ide.query.resource.MacroResourcesQuerySpecification"
-            id="macro.files.querySpecification">
-        </querySpecification>
+            id="macro.files.querySpecification" />
+        <querySpecification
+            class="com.liferay.poshi.ide.query.resource.PathResourcesQuerySpecification"
+            id="path.files.querySpecification" />
     </extension>
 
     <extension
@@ -46,6 +54,9 @@
         <querySpecification
             class="com.liferay.poshi.ide.ui.node.FunctionNodeQuerySpecification"
             id="function.node.querySpecification" />
+        <querySpecification
+            class="com.liferay.poshi.ide.ui.node.PathNodeQuerySpecification"
+            id="path.node.querySpecification" />
     </extension>
 
     <extension
@@ -112,6 +123,42 @@
                     querySpecificationId="com.liferay.ide.poshi.search.ui.seleniumqueryspecification"
                 />
             </reference>
+            <reference>
+                <from
+                    path="//execute"
+                    targetNodes="@locator1"
+                    querySpecificationId="testcase.querySpecification" >
+                </from>
+                <toResource
+                    querySpecificationId="path.files.querySpecification"
+                    additionalProposalInfoProviderId="poshi.info"
+                 /> 
+                <to
+                    path="/html/body/table/tbody/tr/td[1]"
+                    targetNodes="."
+                    querySpecificationId="path.node.querySpecification"
+                    additionalProposalInfoProviderId="poshi.node.info"
+                    searcherId="poshi.node.searcher"
+                 />
+            </reference>
+            <reference>
+                <from
+                    path="//execute"
+                    targetNodes="@locator2"
+                    querySpecificationId="testcase.querySpecification" >
+                </from>
+                <toResource
+                    querySpecificationId="path.files.querySpecification"
+                    additionalProposalInfoProviderId="poshi.info"
+                 /> 
+                <to
+                    path="/html/body/table/tbody/tr/td[1]"
+                    targetNodes="."
+                    querySpecificationId="path.node.querySpecification"
+                    additionalProposalInfoProviderId="poshi.node.info"
+                    searcherId="poshi.node.searcher"
+                 />
+            </reference>
         </references>
 
         <references
@@ -163,6 +210,42 @@
                     querySpecificationId="com.liferay.ide.poshi.search.ui.seleniumqueryspecification"
                 />
             </reference>
+            <reference>
+                <from
+                    path="//execute"
+                    targetNodes="@locator1"
+                    querySpecificationId="function.querySpecification" >
+                </from>
+                <toResource
+                    querySpecificationId="path.files.querySpecification"
+                    additionalProposalInfoProviderId="poshi.info"
+                 /> 
+                <to
+                    path="/html/body/table/tbody/tr/td[1]"
+                    targetNodes="."
+                    querySpecificationId="path.node.querySpecification"
+                    additionalProposalInfoProviderId="poshi.node.info"
+                    searcherId="poshi.node.searcher"
+                 />
+            </reference>
+            <reference>
+                <from
+                    path="//execute"
+                    targetNodes="@locator2"
+                    querySpecificationId="function.querySpecification" >
+                </from>
+                <toResource
+                    querySpecificationId="path.files.querySpecification"
+                    additionalProposalInfoProviderId="poshi.info"
+                 /> 
+                <to
+                    path="/html/body/table/tbody/tr/td[1]"
+                    targetNodes="."
+                    querySpecificationId="path.node.querySpecification"
+                    additionalProposalInfoProviderId="poshi.node.info"
+                    searcherId="poshi.node.searcher"
+                 />
+            </reference>
         </references>
 
         <references
@@ -177,7 +260,7 @@
                     querySpecificationId="macro.files.querySpecification"
                     additionalProposalInfoProviderId="poshi.info"
                 />
-                <to
+               <to
                     path="//command"
                     targetNodes="@name"
                     querySpecificationId="macro.node.querySpecification"
@@ -213,6 +296,42 @@
                 <toStatic
                     querySpecificationId="com.liferay.ide.poshi.search.ui.seleniumqueryspecification"
                 />
+            </reference>
+            <reference>
+                <from
+                    path="//execute"
+                    targetNodes="@locator1"
+                    querySpecificationId="marco.querySpecification" >
+                </from>
+                <toResource
+                    querySpecificationId="path.files.querySpecification"
+                    additionalProposalInfoProviderId="poshi.info"
+                 /> 
+                <to
+                    path="/html/body/table/tbody/tr/td[1]"
+                    targetNodes="."
+                    querySpecificationId="path.node.querySpecification"
+                    additionalProposalInfoProviderId="poshi.node.info"
+                    searcherId="poshi.node.searcher"
+                 />
+            </reference>
+            <reference>
+                <from
+                    path="//execute"
+                    targetNodes="@locator2"
+                    querySpecificationId="marco.querySpecification" >
+                </from>
+                <toResource
+                    querySpecificationId="path.files.querySpecification"
+                    additionalProposalInfoProviderId="poshi.info"
+                 /> 
+                <to
+                    path="/html/body/table/tbody/tr/td[1]"
+                    targetNodes="."
+                    querySpecificationId="path.node.querySpecification"
+                    additionalProposalInfoProviderId="poshi.node.info"
+                    searcherId="poshi.node.searcher"
+                 />
             </reference>
         </references>
     </extension>

@@ -16,32 +16,21 @@
 package com.liferay.poshi.ide.query;
 
 import org.eclipse.core.resources.IResource;
-import org.eclipse.wst.xml.search.core.resource.IURIResolver;
-import org.eclipse.wst.xml.search.core.resource.ResourceBaseURIResolver;
+import org.eclipse.wst.xml.search.core.queryspecifications.container.IResourceProvider;
+import org.eclipse.wst.xml.search.core.queryspecifications.requestor.IXMLSearchRequestor;
+import org.eclipse.wst.xml.search.core.queryspecifications.requestor.IXMLSearchRequestorProvider;
 
-/**
- * @author Terry Jia
- */
-public class PoshiURIResolver extends ResourceBaseURIResolver
+public class PathQuerySpecification implements IXMLSearchRequestorProvider, IResourceProvider
 {
 
-    public static final IURIResolver INSTANCE = new PoshiURIResolver();
-
-    public String resolve( Object selectedNode, IResource rootContainer, IResource file )
+    public IXMLSearchRequestor getRequestor()
     {
-        String s = super.resolve( selectedNode, rootContainer, file );
-
-        if( !s.equals( "" ) && s.contains( "." ) )
-        {
-            s = s.substring( 0, s.indexOf( "." ) );
-        }
-
-        if( s.contains( "/" ) )
-        {
-            //consider more than tow levels of subfolder
-            s = s.substring( s.lastIndexOf("/") + 1 );
-        }
-
-        return s;
+        return PathSearchRequestor.INSTANCE;
     }
+
+    public IResource getResource( Object selectedNode, IResource resource )
+    {
+        return resource;
+    }
+
 }
