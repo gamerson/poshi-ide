@@ -429,6 +429,56 @@
                 </enablement>
             </contextualLaunch>
         </shortcut>
+        <shortcut
+            class="com.liferay.poshi.ide.ui.launch.RunSeleniumTomcatLaunchShortcut"
+            icon="icons/liferay.png"
+            id="com.liferay.poshi.ide.ui.launch.runSeleniumTomcatLaunchShortcut"
+            label="Run Selenium Tomcat"
+            modes="run">
+            <contextualLaunch>
+                <enablement>
+                    <with
+                        variable="selection">
+                        <count
+                            value="1">
+                        </count>
+                        <iterate>
+                            <or>
+                                <test
+                                    property="org.eclipse.debug.ui.matchesPattern"
+                                    value="*.testcase">
+                                </test>
+                            </or>
+                        </iterate>
+                    </with>
+                </enablement>
+            </contextualLaunch>
+        </shortcut>
+        <shortcut
+            class="com.liferay.poshi.ide.ui.launch.RunSeleniumTestLaunchShortcut"
+            icon="icons/liferay.png"
+            id="com.liferay.poshi.ide.ui.launch.runSeleniumTestLaunchShortcut"
+            label="Run Selenium Test"
+            modes="run">
+            <contextualLaunch>
+                <enablement>
+                    <with
+                        variable="selection">
+                        <count
+                            value="1">
+                        </count>
+                        <iterate>
+                            <or>
+                                <test
+                                    property="org.eclipse.debug.ui.matchesPattern"
+                                    value="*.testcase">
+                                </test>
+                            </or>
+                        </iterate>
+                    </with>
+                </enablement>
+            </contextualLaunch>
+        </shortcut>
     </extension>
 
     <extension
