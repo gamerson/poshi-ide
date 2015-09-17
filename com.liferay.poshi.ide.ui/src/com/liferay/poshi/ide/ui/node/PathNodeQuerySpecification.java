@@ -15,32 +15,74 @@
 
 package com.liferay.poshi.ide.ui.node;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.wst.xml.core.internal.document.AttrImpl;
-import org.eclipse.wst.xml.search.core.queryspecifications.container.IResourceProvider;
+import org.eclipse.wst.xml.search.core.queryspecifications.container.IMultiResourceProvider;
 import org.eclipse.wst.xml.search.core.queryspecifications.requestor.IXMLSearchRequestor;
 import org.eclipse.wst.xml.search.core.queryspecifications.requestor.IXMLSearchRequestorProvider;
 
+import com.liferay.poshi.ide.ui.PoshiUI;
+
+/**
+ * @author Andy Wu
+ */
 @SuppressWarnings( "restriction" )
-public class PathNodeQuerySpecification implements IXMLSearchRequestorProvider, IResourceProvider
+public class PathNodeQuerySpecification implements IXMLSearchRequestorProvider, IMultiResourceProvider
 {
+
+    private String[] folders = new String[] { "/paths", "/tests" };
+    private IResource[] targetResources;
+
+    private class PathFileFinder implements IResourceVisitor
+    {
+
+        private String fileName;
+
+        public PathFileFinder( String fileName )
+        {
+            this.fileName = fileName;
+        }
+
+        @Override
+        public boolean visit( IResource resource ) throws CoreException
+        {
+            if( resource.getName().equals( fileName + ".path" ) )
+            {
+                List<IResource> resources = new ArrayList<IResource>();
+
+                resources.add( resource );
+
+                setTargetResources( resources.toArray( new IResource[0] ) );
+
+                return false;
+            }
+
+            return true;
+        }
+
+    }
 
     public IXMLSearchRequestor getRequestor()
     {
         return PathNodeSearchRequestor.INSTANCE;
     }
 
-    public IResource getResource( Object selectedNode, IResource resource )
+    @Override
+    public IResource[] getResources( Object selectedNode, IResource resource )
     {
-
         String nodeFileName = "";
+        IProject project = resource.getProject();
 
         if( selectedNode instanceof AttrImpl )
         {
             AttrImpl node = (AttrImpl) selectedNode;
-            node.getModel().getBaseLocation();
+
             String nodeValue = node.getValue();
 
             if( nodeValue.contains( "#" ) && ( nodeValue.indexOf( "#" ) != 0 ) )
@@ -51,47 +93,43 @@ public class PathNodeQuerySpecification implements IXMLSearchRequestorProvider, 
 
         if( nodeFileName.equals( "" ) )
         {
-            return resource.getProject().getFolder( "/paths" );
+            List<IResource> resources = new ArrayList<IResource>();
+
+            for( String folder : folders )
+            {
+                resources.add( project.getFolder( folder ) );
+            }
+
+            return resources.toArray( new IResource[0] );
         }
         else
         {
             final String fileName = nodeFileName;
+
             // clear last state
-            setTargetResource( null );
+            setTargetResources( null );
 
             try
             {
-                resource.getProject().getFolder( "paths" ).accept( new IResourceVisitor()
+                IResourceVisitor pathFileFinder = new PathFileFinder( fileName );
+
+                for( String folder : folders )
                 {
-
-                    @Override
-                    public boolean visit( IResource resource ) throws CoreException
-                    {
-                        if( resource.getName().equals( fileName + ".path" ) )
-                        {
-                            setTargetResource( resource );
-
-                            return false;
-                        }
-
-                        return true;
-                    }
-                } );
+                    project.getFolder( folder ).accept( pathFileFinder );
+                }
             }
             catch( CoreException e )
             {
-                e.printStackTrace();
+                PoshiUI.logError( e );
             }
 
-            return targetResource;
+            return targetResources;
         }
     }
 
-    private void setTargetResource( IResource targetResource )
+    private void setTargetResources( IResource[] targetResources )
     {
-        this.targetResource = targetResource;
+        this.targetResources = targetResources;
     }
-
-    private IResource targetResource;
 
 }
