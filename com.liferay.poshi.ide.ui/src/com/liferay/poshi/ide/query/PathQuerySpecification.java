@@ -20,6 +20,9 @@ import org.eclipse.wst.xml.search.core.queryspecifications.container.IResourcePr
 import org.eclipse.wst.xml.search.core.queryspecifications.requestor.IXMLSearchRequestor;
 import org.eclipse.wst.xml.search.core.queryspecifications.requestor.IXMLSearchRequestorProvider;
 
+/**
+ * @author Andy Wu
+ */
 public class PathQuerySpecification implements IXMLSearchRequestorProvider, IResourceProvider
 {
 

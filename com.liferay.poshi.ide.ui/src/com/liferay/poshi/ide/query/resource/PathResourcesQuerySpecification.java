@@ -15,10 +15,12 @@
 
 package com.liferay.poshi.ide.query.resource;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.wst.xml.search.core.queryspecifications.container.IResourceProvider;
-import org.eclipse.wst.xml.search.core.resource.DefaultResourceRequestor;
+import org.eclipse.wst.xml.search.core.queryspecifications.container.IMultiResourceProvider;
 import org.eclipse.wst.xml.search.core.resource.IResourceRequestor;
 import org.eclipse.wst.xml.search.core.resource.IResourceRequestorProvider;
 import org.eclipse.wst.xml.search.core.resource.IURIResolver;
@@ -26,24 +28,37 @@ import org.eclipse.wst.xml.search.core.resource.IURIResolverProvider;
 
 import com.liferay.poshi.ide.query.PoshiURIResolver;
 
+/**
+ * @author Andy Wu
+ */
 public class PathResourcesQuerySpecification
-    implements IResourceProvider, IResourceRequestorProvider, IURIResolverProvider
+    implements IMultiResourceProvider, IResourceRequestorProvider, IURIResolverProvider
 {
+
+    private String[] folders = new String[] { "/paths", "/tests" };
 
     public IResourceRequestor getRequestor()
     {
-        return DefaultResourceRequestor.INSTANCE;
-    }
-
-    public IResource getResource( Object selectedNode, IResource resource )
-    {
-        return resource.getProject().getFolder( "/paths" );
+        return PathResourceRequetor.INSTANCE;
     }
 
     @Override
     public IURIResolver getURIResolver( IFile file, Object selectedNode )
     {
         return PoshiURIResolver.INSTANCE;
+    }
+
+    @Override
+    public IResource[] getResources( Object selectedNode, IResource resource )
+    {
+        List<IResource> resources = new ArrayList<IResource>();
+
+        for( String folder : folders )
+        {
+            resources.add( resource.getProject().getFolder( folder ) );
+        }
+
+        return resources.toArray( new IResource[0] );
     }
 
 }

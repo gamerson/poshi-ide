@@ -13,25 +13,35 @@
  *
  *******************************************************************************/
 
-package com.liferay.poshi.ide.query;
+package com.liferay.poshi.ide.query.resource;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.wst.xml.search.core.queryspecifications.requestor.AbstractXMLSearchRequestor;
-import org.eclipse.wst.xml.search.core.queryspecifications.requestor.IXMLSearchRequestor;
+import org.eclipse.wst.xml.search.core.resource.AbstractResourceRequestor;
+import org.eclipse.wst.xml.search.core.resource.IResourceRequestor;
+import org.eclipse.wst.xml.search.core.resource.IURIResolver;
 
 /**
  * @author Andy Wu
  */
-public class PathSearchRequestor extends AbstractXMLSearchRequestor
+public class PathResourceRequetor extends AbstractResourceRequestor
 {
 
-    public static IXMLSearchRequestor INSTANCE = new PathSearchRequestor();
+    public static IResourceRequestor INSTANCE = new PathResourceRequetor();
 
     @Override
-    protected boolean accept( IFile file, IResource rootResource )
+    protected boolean accept(
+        Object selectedNode, IResource rootContainer, IFile file, IURIResolver resolver, String matching,
+        boolean fullMatch )
     {
-        return true;
+        if( file.getName().endsWith( ".path" ) )
+        {
+            return resolver.accept( selectedNode, rootContainer, file, matching, fullMatch );
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }

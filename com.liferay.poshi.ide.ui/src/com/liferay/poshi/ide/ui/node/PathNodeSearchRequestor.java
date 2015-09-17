@@ -21,6 +21,9 @@ import java.util.Collections;
 import org.eclipse.wst.xml.search.core.queryspecifications.requestor.ContentTypeXMLSearchRequestor;
 import org.eclipse.wst.xml.search.core.queryspecifications.requestor.IXMLSearchRequestor;
 
+/**
+ * @author Andy Wu
+ */
 public class PathNodeSearchRequestor extends ContentTypeXMLSearchRequestor
 {
 

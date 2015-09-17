@@ -40,7 +40,7 @@ public class MacroNodeQuerySpecification implements IXMLSearchRequestorProvider,
         if( selectedNode instanceof AttrImpl )
         {
             AttrImpl node = (AttrImpl) selectedNode;
-            node.getModel().getBaseLocation();
+
             String nodeValue = node.getValue();
 
             if( nodeValue.contains( "#" ) && ( nodeValue.indexOf( "#" ) != 0 ) )
