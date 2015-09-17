@@ -20,13 +20,13 @@
     <extension
         point="org.eclipse.wst.xml.search.core.querySpecifications">
         <querySpecification
-            id="testcase.querySpecification" 
+            id="testcase.querySpecification"
             class="com.liferay.poshi.ide.query.TestcaseQuerySpecification" />
         <querySpecification
-            id="function.querySpecification" 
+            id="function.querySpecification"
             class="com.liferay.poshi.ide.query.FunctionQuerySpecification" />
         <querySpecification
-            id="macro.querySpecification" 
+            id="macro.querySpecification"
             class="com.liferay.poshi.ide.query.MacroQuerySpecification" />
         <querySpecification
             id="path.querySpecification"
@@ -101,7 +101,7 @@
                     querySpecificationId="testcase.querySpecification" >
                 </from>
                 <toResource
-                    querySpecificationId="function.files.querySpecification" 
+                    querySpecificationId="function.files.querySpecification"
                     additionalProposalInfoProviderId="poshi.info"
                 />
                 <to
@@ -132,7 +132,7 @@
                 <toResource
                     querySpecificationId="path.files.querySpecification"
                     additionalProposalInfoProviderId="poshi.info"
-                 /> 
+                 />
                 <to
                     path="/html/body/table/tbody/tr/td[1]"
                     targetNodes="."
@@ -150,7 +150,7 @@
                 <toResource
                     querySpecificationId="path.files.querySpecification"
                     additionalProposalInfoProviderId="poshi.info"
-                 /> 
+                 />
                 <to
                     path="/html/body/table/tbody/tr/td[1]"
                     targetNodes="."
@@ -189,7 +189,7 @@
                     querySpecificationId="function.querySpecification" >
                 </from>
                 <toResource
-                    querySpecificationId="function.files.querySpecification" 
+                    querySpecificationId="function.files.querySpecification"
                     additionalProposalInfoProviderId="poshi.info"
                 />
                 <to
@@ -219,7 +219,7 @@
                 <toResource
                     querySpecificationId="path.files.querySpecification"
                     additionalProposalInfoProviderId="poshi.info"
-                 /> 
+                 />
                 <to
                     path="/html/body/table/tbody/tr/td[1]"
                     targetNodes="."
@@ -237,7 +237,7 @@
                 <toResource
                     querySpecificationId="path.files.querySpecification"
                     additionalProposalInfoProviderId="poshi.info"
-                 /> 
+                 />
                 <to
                     path="/html/body/table/tbody/tr/td[1]"
                     targetNodes="."
@@ -276,7 +276,7 @@
                     querySpecificationId="macro.querySpecification" >
                 </from>
                 <toResource
-                    querySpecificationId="function.files.querySpecification" 
+                    querySpecificationId="function.files.querySpecification"
                     additionalProposalInfoProviderId="poshi.info"
                 />
                 <to
@@ -306,7 +306,7 @@
                 <toResource
                     querySpecificationId="path.files.querySpecification"
                     additionalProposalInfoProviderId="poshi.info"
-                 /> 
+                 />
                 <to
                     path="/html/body/table/tbody/tr/td[1]"
                     targetNodes="."
@@ -324,7 +324,7 @@
                 <toResource
                     querySpecificationId="path.files.querySpecification"
                     additionalProposalInfoProviderId="poshi.info"
-                 /> 
+                 />
                 <to
                     path="/html/body/table/tbody/tr/td[1]"
                     targetNodes="."
@@ -541,5 +541,11 @@
                 menubarPath="poshiPopupMenuCategory/format-source">
             </action>
         </objectContribution>
+    </extension>
+    <extension point="org.eclipse.wst.sse.ui.editorConfiguration">
+        <contentOutlineConfiguration
+            class="com.liferay.poshi.ide.ui.contentoutline.PoshiContentOutlineConfiguration"
+            target="com.liferay.ide.poshi.testcasefile"
+        />
     </extension>
 </plugin>
