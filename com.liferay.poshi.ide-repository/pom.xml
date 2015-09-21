@@ -30,6 +30,18 @@
 
     <name>Poshi IDE Repository</name>
 
+    <properties>
+        <anyedit-site>http://andrei.gmxhome.de/eclipse/</anyedit-site>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>AnyEditTools</id>
+            <layout>p2</layout>
+            <url>${anyedit-site}</url>
+        </repository>
+    </repositories>
+
     <build>
         <plugins>
             <plugin>

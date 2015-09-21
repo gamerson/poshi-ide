@@ -31,6 +31,7 @@
 
    <features>
       <feature id="org.eclipse.wst.xml.search.core-feature" />
+      <feature id="AnyEditTools"/>
    </features>
 
    <configurations>
