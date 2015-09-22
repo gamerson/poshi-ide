@@ -55,6 +55,11 @@
             <layout>p2</layout>
             <url>http://oss.opensagres.fr/eclipse-wtp-xml-search/1.0.1-SNAPSHOT/</url>
         </repository>
+        <repository>
+            <id>anyedit</id>
+            <layout>p2</layout>
+            <url>https://dl.bintray.com/gamerson/anyedit/</url>
+        </repository>
     </repositories>
 
     <build>
