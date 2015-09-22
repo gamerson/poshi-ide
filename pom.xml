@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -54,6 +53,11 @@
             <id>xmlsearch</id>
             <layout>p2</layout>
             <url>http://oss.opensagres.fr/eclipse-wtp-xml-search/1.0.1-SNAPSHOT/</url>
+        </repository>
+        <repository>
+            <id>anyedit</id>
+            <layout>p2</layout>
+            <url>https://dl.bintray.com/gamerson/anyedit-updatesite/</url>
         </repository>
     </repositories>
 
