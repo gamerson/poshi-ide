@@ -10,36 +10,38 @@
 	<xsd:attribute name="arg2" type="xsd:string"/>
 	<xsd:attribute name="argument1" type="xsd:string"/>
 	<xsd:attribute name="argument2" type="xsd:string"/>
-    <xsd:attribute name="attribute" type="xsd:string"/>
+	<xsd:attribute name="attribute" type="xsd:string"/>
 	<xsd:attribute name="component-name" type="xsd:string"/>
 	<xsd:attribute name="default" type="xsd:string"/>
-    <xsd:attribute name="description" type="xsd:string"/>
-    <xsd:attribute name="extends" type="xsd:string"/>
+	<xsd:attribute name="description" type="xsd:string"/>
+	<xsd:attribute name="extends" type="xsd:string"/>
 	<xsd:attribute name="function" type="xsd:string"/>
-    <xsd:attribute name="group" type="xsd:string"/>
-    <xsd:attribute name="ignore" type="xsd:string"/>
-    <xsd:attribute name="ignore-command-names" type="xsd:string"/>
-    <xsd:attribute name="input" type="xsd:string"/>
+	<xsd:attribute name="group" type="xsd:string"/>
+	<xsd:attribute name="ignore" type="xsd:string"/>
+	<xsd:attribute name="ignore-command-names" type="xsd:string"/>
+	<xsd:attribute name="input" type="xsd:string"/>
 	<xsd:attribute name="known-issues" type="xsd:string"/>
 	<xsd:attribute name="list" type="xsd:string"/>
-    <xsd:attribute name="locator" type="xsd:string"/>
-    <xsd:attribute name="locator1" type="xsd:string"/>
-    <xsd:attribute name="locator2" type="xsd:string"/>
+	<xsd:attribute name="locator" type="xsd:string"/>
+	<xsd:attribute name="locator1" type="xsd:string"/>
+	<xsd:attribute name="locator2" type="xsd:string"/>
 	<xsd:attribute name="macro" type="xsd:string"/>
-    <xsd:attribute name="macro-summary" type="xsd:string"/>
+	<xsd:attribute name="macro-desktop" type="xsd:string"/>
+	<xsd:attribute name="macro-mobile" type="xsd:string"/>
+	<xsd:attribute name="macro-summary" type="xsd:string"/>
 	<xsd:attribute name="message" type="xsd:string"/>
 	<xsd:attribute name="method" type="xsd:string"/>
 	<xsd:attribute name="name" type="xsd:string"/>
 	<xsd:attribute name="param" type="xsd:string"/>
-    <xsd:attribute name="pattern" type="xsd:string"/>
-    <xsd:attribute name="priority" type="xsd:string"/>
-    <xsd:attribute name="property-value" type="xsd:string"/>
+	<xsd:attribute name="pattern" type="xsd:string"/>
+	<xsd:attribute name="priority" type="xsd:string"/>
+	<xsd:attribute name="property-value" type="xsd:string"/>
 	<xsd:attribute name="selenium" type="xsd:string"/>
-    <xsd:attribute name="string" type="xsd:string"/>
-    <xsd:attribute name="substring" type="xsd:string"/>
-    <xsd:attribute name="summary" type="xsd:string"/>
-    <xsd:attribute name="summary-ignore" type="xsd:string"/>
-    <xsd:attribute name="test-case" type="xsd:string"/>
+	<xsd:attribute name="string" type="xsd:string"/>
+	<xsd:attribute name="substring" type="xsd:string"/>
+	<xsd:attribute name="summary" type="xsd:string"/>
+	<xsd:attribute name="summary-ignore" type="xsd:string"/>
+	<xsd:attribute name="test-case" type="xsd:string"/>
 	<xsd:attribute name="value" type="xsd:string"/>
 	<xsd:attribute name="value1" type="xsd:string"/>
 	<xsd:attribute name="var" type="xsd:string"/>
@@ -158,8 +160,10 @@
 			<xsd:attribute ref="argument2" />
 			<xsd:attribute ref="function" />
 			<xsd:attribute ref="locator1" />
-            <xsd:attribute ref="locator2" />
+			<xsd:attribute ref="locator2" />
 			<xsd:attribute ref="macro" />
+			<xsd:attribute ref="macro-desktop" />
+			<xsd:attribute ref="macro-mobile" />
 			<xsd:attribute ref="selenium" />
 			<xsd:attribute ref="value1" />
             <xsd:attribute ref="test-case" />
